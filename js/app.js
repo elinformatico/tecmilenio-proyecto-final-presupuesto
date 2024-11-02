@@ -118,6 +118,12 @@ const agregarDatoPresupuesto = () => {
     }
 };
 
+const cargarCurrentYear = () => {
+    const productsContainer = document.getElementById('products-container');
+    const currentYear = document.getElementById('current_year');
+    currentYear.innerHTML = (new Date().getFullYear());
+}
+
 window.eliminarIngreso = eliminarIngreso;
 window.eliminarEgreso = eliminarEgreso;
 window.agregarDatoPresupuesto = agregarDatoPresupuesto;
@@ -126,6 +132,7 @@ const iniciarAplicacion = () => {
     actualizarCabecero();
     cargarIngresos();
     cargarEgresos();
+    cargarCurrentYear();
 };
 
 export { iniciarAplicacion };
