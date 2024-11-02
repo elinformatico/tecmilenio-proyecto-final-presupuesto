@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body onload="cargarApp()">
+<!-- Equivalencia de Vanilla JS, para carga el JS cuando carge la Pagina
+    document.addEventListener('DOMContentLoaded', fn, false); 
+-->
+<body onload="iniciarAplicacion()">
 
     <div id="cabecero" class="cabecero">
         <div class="presupuesto">
@@ -43,7 +46,7 @@
                 </select>
                 <input class="agregar_descripcion" type="text" id="descripcion" placeholder="Agregar Descripción">
                 <input class="agregar_valor" type="number" id="valor" placeholder="valor">
-                <button class="agregar_btn ion--ios-checkmark-circle-outline" onclick="agregarDato()"></button>
+                <button class="agregar_btn ion--ios-checkmark-circle-outline" onclick="agregarDatoPresupuesto()"></button>
             </div>
         </div>
     </form>
@@ -103,7 +106,7 @@
             </div>
         </div>
     </div>
-    <script type="module"> import { cargarApp } from './js/app.js'; window.cargarApp = cargarApp;</script>
+    <script type="module"> import { iniciarAplicacion } from './js/app.js'; window.iniciarAplicacion = iniciarAplicacion;</script>
 </body>
 
 </html>
