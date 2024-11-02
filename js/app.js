@@ -60,7 +60,34 @@ const renderItems = (items, containerId, crearHTML) => {
     container.innerHTML = items.map(crearHTML).join("");
 };
 
+// Template String para Ingresos
+const crearIngresoHTML = (ingreso) => `
+    <div class="elemento limpiarEstilos">
+        <div class="elemento_descripcion">${ingreso.descripcion}</div>
+        <div class="derecha limpiarEstilos">
+            <div class="elemento_valor">+ ${formatoMoneda(ingreso.valor)}</div>
+            <div class="elemento_eliminar">
+                <button class="elemento_eliminar_btn mdi--close-circle-outline" onclick="eliminarIngreso(${ingreso.id})"></button>
+            </div>
+        </div>
+    </div>
+`;
 
+// Template String para Egresos
+const crearEgresoHTML = (egreso) => `
+    <div class="elemento limpiarEstilos">
+        <div class="elemento_descripcion">${egreso.descripcion}</div>
+        <div class="derecha limpiarEstilos">
+            <div class="elemento_valor">- ${formatoMoneda(egreso.valor)}</div>
+            <div class="elemento_eliminar">
+                <button class="elemento_eliminar_btn mdi--close-circle-outline" onclick="eliminarEgreso(${egreso.id})"></button>
+            </div>
+        </div>
+    </div>
+`;
+
+const cargarIngresos = () => renderItems(ingresos, "lista-ingresos", crearIngresoHTML);
+const cargarEgresos = () => renderItems(egresos, "lista-egresos", crearEgresoHTML);
 
 const eliminarItem = (items, id, renderFn) => {
     const index = items.findIndex(item => item.id === id);
